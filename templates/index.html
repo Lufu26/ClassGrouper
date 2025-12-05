@@ -1,0 +1,40 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClassGrouper - Setup</title>
+    <!-- Importing Bootstrap for nice form elements -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="header-title">ClassGrouper Generator</h1>
+    
+    <div class="alert alert-info">
+        Paste your list of names below. Put each name on a new line.
+    </div>
+
+    <form action="/analyze" method="POST">
+        <div class="mb-3">
+            <label for="raw_names" class="form-label"><strong>Paste Names Here:</strong></label>
+            <textarea class="form-control" id="raw_names" name="raw_names" rows="10" placeholder="John Doe&#10;Jane Smith&#10;Michael Johnson..." required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="group_size" class="form-label"><strong>Group Size (e.g., 5 or 10):</strong></label>
+                <input type="number" class="form-control" id="group_size" name="group_size" value="10" min="2" required>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg">Generate Groups</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
